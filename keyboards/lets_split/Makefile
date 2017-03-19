@@ -1,4 +1,5 @@
-SUBPROJECT_DEFAULT = rev2
+RGBLIGHT_ENABLE=yes
+AUDIO_ENABLE=no
 
 ifndef MAKEFILE_INCLUDED
 	include ../../Makefile

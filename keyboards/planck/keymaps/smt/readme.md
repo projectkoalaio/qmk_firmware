@@ -4,62 +4,27 @@ This keymap is primarily based on the default Planck keymap.
 
 Notable differences from the default are:
 
-- **[Mod-Tap](https://github.com/jackhumbert/qmk_firmware/wiki#fun-with-modifier-keys) keys**
+1. **Dvorak by default**
 
-    - `Esc/Ctrl`
+    I happen to type in Dvorak, and prefer that layer to be the default on my keyboard. This is easy enough to switch around with Qwerty, Colemak, or whatever.
 
-        I am experimenting with using Left Shift as a mod-tap key for Escape, similar to how I use the Enter key. It's set up like this on my Minivan, so in the interest of consistency...
+2. **Right Shift**
 
-    - `Enter/Shift`
+    I use both the left and right shift keys when I type. When I want to modify a key with shift, I hold shift with the hand opposite the one typing the key. In the default keymap, Enter is where shift would be on a standard keyboard layout. Oh, muscle memory.
 
-        I use both the left and right shift keys when I type. When I want to modify a key with shift, I hold shift with the hand opposite the one typing the key. In the default keymap, Enter is where shift would be on a standard keyboard layout. Oh, muscle memory.
+    Thankfully, QMK supports [mod-tap](https://github.com/jackhumbert/qmk_firmware/wiki#fun-with-modifier-keys) keys, and this allows me to set the Enter key to send a modifier (MOD_LSFT) when held, and KC_ENT when tapped. Awesome!
 
-    - `Tab/Hyper` (Super+Ctrl+Shift+Alt)
+3. Escape
 
-        It's great to be able to use Tab as a custom modifier key. I tend to use [Hyper](http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/) commands for various OS-specific operations depending on what machine I'm working on.
+    I am experimenting with using Left Shift as a mod-tap key for Escape, similar to how I use the Enter key. It's set up like this on my Minivan, so in the interest of consistency...
 
-    - `Backtick/Meh` (Ctrl+Shift+Alt)
+4. Backtick
 
-        Why use backtick in the lower left corner? I use it as my tmux prefix key, so I need to type it more frequently than most people. Putting it on the base layer works well for me. The "Meh" mapping is just a less-cool "Hyper"; the same, just without Super.
+    I don't currently have LEDs on any of my keyboards, and even if I did, I don't think I would want their controls on a base layer.
 
-- **Swapped responsibilities of "lower" and "raise" layers**
+    So, why use backtick in the lower left corner? I use it as my tmux prefix key, so I need to type it more frequently than most people. Putting it on the base layer works well for me.
 
-    I prefer to use symbols via the "raise" layer, and numbers via the "lower" layer.
-
-- **Removed Plover layer**
-
-    I don't intend to use stenography anytime soon, so Plover just didn't have a place in my keymap.
-
-
-## Qwerty
-
-```
-,-----------------------------------------------------------------------------------.
-| Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
-|------+------+------+------+------+-------------+------+------+------+------+------|
-| Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
-|------+------+------+------+------+------|------+------+------+------+------+------|
-| Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
-|------+------+------+------+------+------+------+------+------+------+------+------|
-|   `  | Ctrl | Alt  | GUI  |Lower |Space |Space |Raise | Left | Down |  Up  |Right |
-`-----------------------------------------------------------------------------------'
-```
-
-## Colemak
-
-```
-,-----------------------------------------------------------------------------------.
-| Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Bksp |
-|------+------+------+------+------+-------------+------+------+------+------+------|
-| Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
-|------+------+------+------+------+------|------+------+------+------+------+------|
-| Shift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |Enter |
-|------+------+------+------+------+------+------+------+------+------+------+------|
-|   `  | Ctrl | Alt  | GUI  |Lower |Space |Space |Raise | Left | Down |  Up  |Right |
-`-----------------------------------------------------------------------------------'
-```
-
-## Dvorak
+## Dvorak (default)
 
 ```
 ,-----------------------------------------------------------------------------------.
@@ -73,17 +38,31 @@ Notable differences from the default are:
 `-----------------------------------------------------------------------------------'
 ```
 
-## Lower
-
-This is where I put the number row, a numpad cluster, function keys, and media controls.
+## Qwerty (same as default)
 
 ```
 ,-----------------------------------------------------------------------------------.
-|   0  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Del  |
+| Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
 |------+------+------+------+------+-------------+------+------+------+------+------|
-|   $  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   4  |   5  |   6  |      |      |
+| Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
 |------+------+------+------+------+------|------+------+------+------+------+------|
-|      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |   1  |   2  |   3  |      |      |
+| Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+|------+------+------+------+------+------+------+------+------+------+------+------|
+|   `  | Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+`-----------------------------------------------------------------------------------'
+```
+
+## Lower
+
+This is where I put the number row, a numpad cluster, function keys, and some light navigation via Home/End/PageUp/PageDn. Like the "Raise" layer, the top row is redundant to help with Planck compatibility.
+
+```
+,-----------------------------------------------------------------------------------.
+|   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Del  |
+|------+------+------+------+------+-------------+------+------+------+------+------|
+|      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   4  |   5  |   6  | Home |PageUp|
+|------+------+------+------+------+------|------+------+------+------+------+------|
+|      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |   1  |   2  |   3  | End  |PageDn|
 |------+------+------+------+------+------+------+------+------+------+------+------|
 |      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
 `-----------------------------------------------------------------------------------'
@@ -91,7 +70,7 @@ This is where I put the number row, a numpad cluster, function keys, and media c
 
 ## Raise
 
-As a developer, it makes the most sense for me to group all the commonly-used symbols that don't fit on the main layer. In particular, having the dual-column of parens-braces-brackets really helps a lot. I've also added cursorkeys to correspond to the arrows.
+As a developer, it makes the most sense for me to group all the commonly-used symbols that don't fit on the main layer. In particular, having the dual-column of parens-braces-brackets really helps a lot.
 
 I haven't completely filled this layer, which leaves room for future mappings and macros.
 
@@ -103,21 +82,21 @@ I haven't completely filled this layer, which leaves room for future mappings an
 |------+------+------+------+------+------|------+------+------+------+------+------|
 |      |      |      |      |      |      |   -  |   /  |   =  |   [  |   ]  |  \   |
 |------+------+------+------+------+------+------+------+------+------+------+------|
-|      |      |      |      |      |      |      |      | Home |PageDn|PageUp| End  |
+|      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
 `-----------------------------------------------------------------------------------'
 ```
 
 ## Adjust (Lower + Raise)
 
-Utility layer. This is where I'd switch between Qwerty and Dvorak, ~~fool around with~~ adjust the audio/music settings, or put the Planck into bootloader mode.
+Utility layer. This is where I'd switch to Qwerty, or ~~fool around with~~ adjust the audio/music settings.
 
 ```
 ,-----------------------------------------------------------------------------------.
-|      | Reset|      |      |      |      |      |      |      |      |      | Reset|
+|      | Reset|      |      |      |      |      |      |      |      |      |  Del |
 |------+------+------+------+------+-------------+------+------+------+------+------|
-|      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |      |
+|      |      |      |Aud on|AudOff|AGnorm|AGswap|Dvorak|Qwerty|      |      |      |
 |------+------+------+------+------+------|------+------+------+------+------+------|
-|      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|      |      |      |      |      |
+|      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      |      |
 |------+------+------+------+------+------+------+------+------+------+------+------|
 |      |      |      |      |      |             |      |      |      |      |      |
 `-----------------------------------------------------------------------------------'

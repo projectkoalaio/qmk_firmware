@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |   \  |   '  |  -   |  =   |  [   |   ]  | Down |  Up  | Left |Right |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |  Esc |   `  |  ~   |  Z   | Tab  |Delete|AltTab|CSINS |      |      |      |      |
+ * |  Esc |   `  |  ~   |  Z   | Tab  |Delete|AltTab|CSINS | Home | End  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = KEYMAP( \
   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,     KC_PERC,  KC_CIRC,   KC_AMPR, KC_ASTR, KC_LPRN,  KC_RPRN, \
   KC_BSLS, KC_QUOT, KC_MINS, KC_EQL,     KC_LBRC,  KC_RBRC,   KC_DOWN, KC_UP,   KC_LEFT,  KC_RIGHT,   \
-  KC_ESC,  KC_GRV,  KC_TILD, LSFT(KC_Z), KC_TAB,   KC_DELETE, M(0), M(1), _______,  _______,   \
+  KC_ESC,  KC_GRV,  KC_TILD, LSFT(KC_Z), KC_TAB,   KC_DELETE, M(0), M(1), KC_HOME,  KC_END,   \
                     _______, _______,    _______,  _______,   _______, _______  \
 ),   
 
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |  CAL |  CAR |  CPU | CPD  |      |  WD  | Left | Down |Right | RFSH |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |  CAD |  WL  |   MC |   WR |  BK  |      |      |
+ * |      |      |  PU  |  PD  |      |  CAD |  WL  |   MC |   WR |  BK  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = KEYMAP( \
   KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, _______,       _______, KC_WH_U,            KC_BTN1,       KC_MS_U,    KC_BTN2,    KC_WFWD,                \
   M(3),      M(2),      M(4),      M(5),       _______, KC_WH_D,            KC_MS_L,       KC_MS_D,    KC_MS_R,    KC_WWW_REFRESH,         \
-  RGB_SAI,      RGB_SAD,      RGB_VAI,      RGB_VAD,       _______, LALT(LCTL(KC_DEL)), KC_WH_L,       KC_BTN3,    KC_WH_R,    KC_WBAK, \
+  RGB_SAI,      RGB_SAD,      KC_PGUP,      KC_PGDN,       _______, LALT(LCTL(KC_DEL)), KC_WH_L,       KC_BTN3,    KC_WH_R,    KC_WBAK, \
                               _______,      _______,       _______, _______, _______, _______                           \
 ),
 

@@ -37,12 +37,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * row: 0  1  2  3  4
 * pin:
 */
-#define MATRIX_ROW_PINS { B0, D3, D5, D4, D6 }
+#define MATRIX_ROW_PINS { D7, C6, D5, D4, D6 }
 /* Column pin configuration
  * col: 0  1  2  3
  * pin: F4 E6 B1 D2
  */
-#define MATRIX_COL_PINS { F4, E6, B1, D2 }
+#define MATRIX_COL_PINS { B5, B4, E6, D2 }
 #define UNUSED_PINS
 
 /* COL2ROW or ROW2COL */

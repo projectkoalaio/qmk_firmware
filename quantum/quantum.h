@@ -103,7 +103,6 @@ void unregister_code16 (uint16_t code);
 
 #ifdef BACKLIGHT_ENABLE
 void backlight_init_ports(void);
-void backlight_task(void);
 
 #ifdef BACKLIGHT_BREATHING
 void breathing_enable(void);

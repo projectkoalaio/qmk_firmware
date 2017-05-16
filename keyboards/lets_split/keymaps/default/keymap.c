@@ -41,14 +41,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      | Ctrl |Lower |Enter |Space |Raise |Adjust|      |      |      |      |
+ * |      |      | Tab  |Lower |Enter |Space |Raise | Esc  |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
+ *                              CTL    LSFT           Super
  */
 [_QWERTY] = KEYMAP( \
   KC_Q, KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    \
   KC_A, KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_BSPC, \
-  KC_Z, KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
-                 KC_LCTL, LOWER,   KC_ENT, MT(MOD_LSFT, KC_SPC), RAISE,   TG(16)  \
+  KC_Z, KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  ALT_T(KC_SLSH), \
+                 KC_TAB, LOWER,   CTL_T(KC_ENT), MT(MOD_LSFT, KC_SPC), RAISE,   GUI_T(KC_ESC)  \
 ),
 
 /* Colemak
@@ -93,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |   \  |   '  |  -   |  =   |  [   |   ]  | Down |  Up  | Left |Right |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |  Esc |   `  |  ~   |  Z   | Tab  |Delete|AltTab|CSINS | Home | End  |      |      |
+ * | Lock |   `  |  ~   |      |Paste |Delete| PgUP | PgDn | Home | End  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -101,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = KEYMAP( \
   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,     KC_PERC,  KC_CIRC,   KC_AMPR, KC_ASTR, KC_LPRN,  KC_RPRN, \
   KC_BSLS, KC_QUOT, KC_MINS, KC_EQL,     KC_LBRC,  KC_RBRC,   KC_DOWN, KC_UP,   KC_LEFT,  KC_RIGHT,   \
-  KC_ESC,  KC_GRV,  KC_TILD, LSFT(KC_Z), KC_TAB,   KC_DELETE, M(0), M(1), KC_HOME,  KC_END,   \
+  M(6)   ,  KC_GRV,  KC_TILD, _______, M(1),   KC_DELETE, KC_PGUP, KC_PGDN, KC_HOME,  KC_END,   \
                     _______, _______,    _______,  _______,   _______, _______  \
 ),   
 
@@ -111,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |   |  |  "   |   _  |  +   |  {   |   }  |   4  |   5  |   6  |Shift |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Vol- | Vol+ | Mute |Super |  ;   |   :  |   1  |   2  |   3  | ALT |      |      |
+ * | Vol- | Vol+ | Mute |      |  ;   |   :  |   1  |   2  |   3  |CTLALT|      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -119,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = KEYMAP( \
   KC_1,    KC_2,    KC_3,         KC_4,         KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,           \
   KC_PIPE, KC_DQT , KC_UNDS,      KC_PLUS,      KC_LCBR, KC_RCBR, KC_4,    KC_5,    KC_6,    KC_LSFT,    \
-  KC_VOLD, KC_VOLU, KC_MUTE,      KC_LGUI,      KC_SCLN, KC_COLN, KC_1,    KC_2,    KC_3,    KC_LALT, \
+  KC_VOLD, KC_VOLU, KC_MUTE,      _______,      KC_SCLN, KC_COLN, KC_1,    KC_2,    KC_3,    M(7), \
                     _______,      _______,      _______, _______, _______, _______                           \
 ),
 
@@ -245,6 +246,14 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) //
     case 5: // this would trigger when you hit a key mapped as M(5)
       if (record->event.pressed) {
         return MACRO( D(LCTL), D(PGDOWN), U(PGDOWN), U(LCTL), END  ); // control page down
+      }
+    case 6: // this would trigger when you hit a key mapped as M(6)
+      if (record->event.pressed) {
+        return MACRO( D(LCTL), D(LALT), D(L), U(L), U(LALT), U(LCTL), END  ); // control alt l
+      }    
+    case 7: // this would trigger when you hit a key mapped as M(7)
+      if (record->event.pressed) {
+        return MACRO( D(LCTL), D(LALT), U(LALT), U(LCTL), END  ); // control alt
       }
     break;
   }
